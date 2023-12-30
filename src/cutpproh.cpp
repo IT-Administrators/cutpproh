@@ -5,26 +5,23 @@ header file cutpproh.
 
 // Implementation file for cutpproh.
 // Import necessary files. 
-#include <iostream>
 #include <string>
 #include <algorithm>
 // Import user defined header (current directory.)
 #include "cutpproh.hpp"
 
-using namespace std;
-
-char CutPpRoH::GetCharOnPos(const string& strng, const int& pos){
+char CutPpRoH::CutPp::GetCharOnPos(const std::string& strng, const int& pos){
     // Return char on pos. 
     return strng.at(pos);
 }
 
-string CutPpRoH::GetCharBetweenPos(const string& strng, const int& frompos, const int& topos)
+std::string CutPpRoH::CutPp::GetCharsBetweenPos(const std::string& strng, const int& frompos, const int& topos)
 {   
     // Return char from startposition to difference of (endposition - startposition).
     return strng.substr(frompos,(topos - frompos));
 }
 
-vector<int> CutPpRoH::CalcSepPos(const string& strng, const char& sep)
+std::vector<int> CutPpRoH::CutPp::CalcSepPos(const std::string& strng, const char& sep)
 {   
     /* Save string length by changing type from unsinged long long to int. 
     The equivalent would be:
@@ -35,7 +32,7 @@ vector<int> CutPpRoH::CalcSepPos(const string& strng, const char& sep)
     otherwise the first and last would be missing. 
     The vector can also be initialised with just the 0 and after adding all indizes the 
     stringlength can be added, this would not require a sort of the vector in the end. */
-    vector<int> seppos = {0, (int) strng.size()};
+    std::vector<int> seppos = {0, (int) strng.size()};
     // Iterate through string an check i character matches separator.
     // If yes save index of separator.
     for(int i = 0; i < strng.size(); i++){
@@ -50,13 +47,13 @@ vector<int> CutPpRoH::CalcSepPos(const string& strng, const char& sep)
 }
 // Returns vector of vectors.
 // {{x1,xN-1},{y1,yN-1},...}
-vector<vector<int>> CutPpRoH::CalcFields(const vector<int>& fields, const vector<int> seppos)
+std::vector<std::vector<int>> CutPpRoH::CutPp::CalcFields(const std::vector<int>& fields, const std::vector<int> seppos)
 {   
     // Fieldstart is always 0. 
     int fieldstart = 0;
     // Init vector to save fieldinfos like startposition and length.
     // Vector design: {{x1,xN-1},{y1,yN-1},...}
-    vector<vector<int>> fieldlist;
+    std::vector<std::vector<int>> fieldlist;
     // Foreach loop.
     for(int field : fields){
         fieldstart = seppos[field];
@@ -66,32 +63,32 @@ vector<vector<int>> CutPpRoH::CalcFields(const vector<int>& fields, const vector
     return fieldlist;
 }
 
-string CutPpRoH::GetFields(const string& strng, const vector<int>& fields, const char& sep)
+std::string CutPpRoH::CutPp::GetFields(const std::string& strng, const std::vector<int>& fields, const char& sep)
 {   
     // Result string.
-    string resstring;
+    std::string resstring;
     // Create string vector, to safe content of fields.
-    vector<string> resstringvec;
+    std::vector<std::string> resstringvec;
     // Get separator positions.
-    vector<int> seppos = CalcSepPos(strng, sep);
+    std::vector<int> seppos = CalcSepPos(strng, sep);
     // Calculate fields (startposition, fieldlength).
-    vector<vector<int>> fieldinfo = CalcFields(fields, seppos);
+    std::vector<std::vector<int>> fieldinfo = CalcFields(fields, seppos);
     // Foreach loop.
-    for(vector f : fieldinfo){
+    for(std::vector f : fieldinfo){
         // Add substring from fieldstart with fieldlength.
         resstringvec.push_back(strng.substr(f[0], f[1]));
     }
     // Join all subvectors(strings) to one string.
-    for(string s : resstringvec){
+    for(std::string s : resstringvec){
         resstring += s;
     }
     return resstring;
 }
 
-string CutPpRoH::GetFieldsNewSeparator(const string& strng, const vector<int>& fields, const char& oldsep, const char& newsep)
+std::string CutPpRoH::CutPp::GetFieldsNewSeparator(const std::string& strng, const std::vector<int>& fields, const char& oldsep, const char& newsep)
 {
     // Get strings inside the fields and replace old separator with new separator.
-    string resstring = GetFields(strng, fields, oldsep);
+    std::string resstring = GetFields(strng, fields, oldsep);
     replace(resstring.begin(),resstring.end(),oldsep,newsep);
     return resstring;
 }

@@ -22,7 +22,7 @@ int main(){
     vector<int> separatorpositions;
     vector<vector<int>> fieldinfos;
     vector<int> flds = {0,3};
-    CutPpRoH strobj;
+    CutPpRoH::CutPp strobj;
 
     cout << "This is the test string:" << endl;
     cout << demostring << endl;
@@ -33,7 +33,7 @@ int main(){
     cout << strobj.GetCharOnPos(demostring,startpos) << endl;
     cout << endl;
     cout << "Return char from position " << startpos << " to position: " << endpos << endl;
-    cout << strobj.GetCharBetweenPos(demostring, startpos, endpos) << endl;
+    cout << strobj.GetCharsBetweenPos(demostring, startpos, endpos) << endl;
     cout << endl;
     cout << "Return all indizes of separator:" << separator << endl;
     separatorpositions = strobj.CalcSepPos(demostring, separator);
