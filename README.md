@@ -34,7 +34,7 @@ The overall project contains 3 files:
 
 ### Installation
 
-If you want to use the headerfile inside your project type the following inside your terminal (requires git):
+To use the headerfile inside your project type the following inside your terminal (requires git):
 
 1. Using Powershell and git
 
@@ -77,7 +77,7 @@ After that you will find an .exe file there, called cutpproh.exe which you can r
 
 ### How to import
 
-Using the headerfile in your project is quite easy. You can include it just like any other file. Depending on your projectstructure the include statement might look different.
+Using the headerfile in your project is quite easy. You can include it just like any other file. Depending on your project structure the include statement might look different.
 
 In this example the headerfile is in the same directory as the main file.
 
@@ -104,7 +104,7 @@ using namespace CutPpRoH;
 int main() {
 // Creating the teststring
 std::string demostring = "This is a demonstration string."
-// Creating an object of that class
+/* Creating an object of that class using the default constructor created by c++ */
 CutPp strobj;
 /* Calling method GetCharOnPos() 
 The method returns the char on the specified position. For demonstration purposes the result is shown on stdout */
@@ -120,7 +120,7 @@ T
 int main() {
 // Creating the teststring
 std::string demostring = "This is a demonstration string."
-// Creating an object of that class
+/* Creating an object of that class using the default constructor created by c++ */
 CutPpRoH::CutPp strobj;
 /* Calling method GetCharOnPos() 
 The method returns the char on the specified position. For demonstration purposes the result is shown on stdout */

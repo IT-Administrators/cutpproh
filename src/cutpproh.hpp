@@ -29,6 +29,9 @@ namespace CutPpRoH {
 
     // Create class.
     class CutPp {
+        /* There's no custom constructor created. The class uses the default constructor/ desctructor created
+        by c++. */
+
         // Public variables and methods that can be used outside the class.
         public:
             // Define class methods.
