@@ -2,7 +2,7 @@
 This file is the driver file to illustrate the implementation of 
 cutpproh.cpp.
 
-Compile with:
+Compile with (from src):
 g++ .\main.cpp .\cutpproh.cpp -o cutpproh
 */
 
@@ -14,6 +14,7 @@ g++ .\main.cpp .\cutpproh.cpp -o cutpproh
 using namespace std;
 
 int main(){
+
     string demostring = "This is a demonstration string.";
     int startpos = 0;
     int endpos = 4;

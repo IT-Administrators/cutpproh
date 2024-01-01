@@ -15,15 +15,15 @@ cutpproh module.
 /* Created a namespace to use it in larger projects. 
 The class and its methods can be accessed in two ways: 
 - Direct call:
-    CutPpRoH::CutPp::Methodname 
+    CutPpRoH::CutPp::Methodname(){}
 
-Using the direct call only the specified class/method inside that namespace is called.
+Using the direct call, only the specified class/method inside that namespace is called.
 
 - Using directive:
     using namespace CutPpRoH;
     CutPp::Methodname(){}
 
-Using the using directive imports the complete namespace, even the parts that might be
+The using directive imports the complete namespace, even the parts that might be
 unnessary. */
 namespace CutPpRoH {
 
