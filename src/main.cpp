@@ -1,6 +1,6 @@
 /*
 This file is the driver file to illustrate the implementation of 
-cutpproh.cpp.
+cutpproh.hpp.
 
 Compile with (from src):
 g++ .\main.cpp .\cutpproh.cpp -o cutpproh

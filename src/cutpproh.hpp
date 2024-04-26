@@ -60,6 +60,8 @@ namespace CutPpRoH {
             The return type must be char because, retrieving a char from a string is type std::char. 
             std::string is defined as class CharT[]. 
             https://en.cppreference.com/w/cpp/string/basic_string */
+
+            // Get char on specified position.
             char GetCharOnPos(const std::string& strng, const int& pos); 
             /* Returns chars between starting position until endposition, which is calculated via the 
             difference of endposition - startposition.
@@ -67,16 +69,18 @@ namespace CutPpRoH {
             these positions are returned. 
             If startposition is bigger than the endposition, all characters between startposition until
             end of line are returned. */
+
+            // Get string between the specified positions.
             std::string GetCharsBetweenPos(const std::string& strng, const int& frompos, const int& topos);
             /* Calculate separator positions. This function is a helper function for the field calculation. 
             The separator indizes are important because they are the borders for the field calculation. */
-            std::vector<int> CalcSepPos(const std::string& strng,const char& sep);
+            std::vector<int> CalcSepPos(const std::string& strng, const char& sep);
             /* Calculate field informations (starting position and length). This function is a helpfer function for the field calculation. 
             The return type needs to be a vector of int vectors, because this way every field can be 
             processed on it's own later on. 
             std::vector<std::vector<int>> = {{x1,xN-1},{y1,yN-1},...} */
             std::vector<std::vector<int>> CalcFields(const std::vector<int>& fields, const std::vector<int> seppos);
-            /* Returns the specified fields and joins them using the same separator*/
+            /* Returns the specified fields and joins them using the same separator.*/
             std::string GetFields(const std::string& strng, const std::vector<int>& fields, const char& sep);
             /* Returns the specified fields and joins them using new separator. */
             std::string GetFieldsNewSeparator(const std::string& strng, const std::vector<int>& fields, const char& oldsep, const char& newsep);
